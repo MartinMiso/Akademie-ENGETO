@@ -54,13 +54,13 @@ users = {"bob" : "123",
         "ann" : "pass123",
         "mike" : "password123",
         "liz" : "pass123"}
-user_register = ()
+
+user_register = False
+
 
 # password verify
 def enter():
-    name = input("User name: ")#.lower() - případné ověření malých písmen
-    password = input("Your password: ")#.lower()
-
+    global user_register
     if users.get(name) == password:
         user_register = True
         print("Welcome to the web")
@@ -68,9 +68,11 @@ def enter():
     else:
         print("Sorry, you must go out!")
         
-
+name = input("User name: ")#.lower() - případné ověření malých písmen
+password = input("Your password: ")#.lower()
 
 enter()
 
 if user_register:
+    
     print("Jsi registrovaný")
