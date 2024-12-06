@@ -4,8 +4,7 @@ projekt_1.py: první projekt do Engeto Online Python Akademie
 author: Martin Mišo
 email: martin.miso@seznam.cz
 """
-TEXTS = ['''
-Situated about 10 miles west of Kemmerer,
+TEXTS = ['''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
@@ -74,6 +73,7 @@ user_register = False
 
 # password verify
 def enter():
+    
     global user_register
     if users.get(name) == password:
         user_register = True
@@ -85,34 +85,26 @@ def enter():
 name = input("User name: ")#.lower() - případné ověření malých písmen
 password = input("Your password: ")#.lower()
 
-# # text analyze def
-# def text_analyze():
-#     global chose_text
-#     if chose_text == True:
-#         long_text = len(text_1)
-#         velka = len(text_1.upper())
-#         for cislo in text_1:
-#             if cislo.isdigit():
-#                 pocet_cisel += 1
+# text analyze def
+def text_analyze():  
+    # proměnné
+    text_part = ("")
+    chose_text = True
+    long_text = ("")
+    velka = ("")
+    znak = ("")
+    velka_pismena = 0
+    pocet_cisel = 0
+    pocet_slov = 0
+    cisla = []
+    soucet_cisel = 0
+    mala_pismena = 0
 
-#         for znak in text_1:
-#             if znak.isupper():
-#                 verzalky += 1
-
-
-
-
-enter()
-
-if user_register:
-    chose_text == True
-    print("Jsi registrovaný")
-    #text_analyze()
-    if chose_text == True:
+    if chose_text == True: 
         long_text = len(text_1.split()) # délka textu
-        
+
         for cislo in (text_1.split()): # počet čísel a suma čísel
-             if cislo.isdigit():
+            if cislo.isdigit():
                 cisla.append(int(cislo))
                 pocet_cisel = len(cisla)
                 soucet_cisel = (sum(cisla))
@@ -123,15 +115,71 @@ if user_register:
 
         for znak in (text_1.split()): # počet velkých písmen v textu
             if znak.isupper():
-                velka_pismena += 1
+                velka_pismena = velka_pismena + 1
         
         for mala in (text_1.split()): # počet velkýchmalých slov v textu
             if mala.islower():
                 mala_pismena += 1
 
-    print("1", long_text) # počet slov
-    print(mala_pismena) # počet čísel
-    print("2", pocet_slov) # počet slov začínající velkými písmeny
-    print("3", velka_pismena) # velká písmena
-    print("5", pocet_cisel)
-    print("6", soucet_cisel) # součet čísel
+    print("Počet slov", long_text) # počet slov
+    print("Slova začínající velkými písmeny", pocet_slov) # počet slov začínající velkými písmeny
+    print("Velká písmena", velka_pismena) # velká písmena
+    print("Počet malých písmen", mala_pismena) # počet čísel
+    print("5Počet čísel", pocet_cisel)
+    print("Součet čísel", soucet_cisel) # součet čísel
+
+
+
+
+enter()
+print()
+if user_register:
+    chose_text == True
+    print("Jsi registrovaný")
+    print()
+    text_analyze()
+
+    # if chose_text == True:
+    #     
+        
+    #     for cislo in (text_1.split()): # počet čísel a suma čísel
+    #          if cislo.isdigit():
+    #             cisla.append(int(cislo))
+    #             pocet_cisel = len(cisla)
+    #             soucet_cisel = (sum(cisla))
+                
+    #     for zacatek_slov in (text_1.split()): # počet slov začínající velkým písmenem
+    #         if zacatek_slov[0].isupper():
+    #             pocet_slov += 1
+
+    #     for znak in (text_1.split()): # počet velkých písmen v textu
+    #         if znak.isupper():
+    #             velka_pismena += 1
+        
+    #     for mala in (text_1.split()): # počet velkýchmalých slov v textu
+    #         if mala.islower():
+    #             mala_pismena += 1
+
+    # print("Počet slov", long_text) # počet slov
+    # print("Slova začínající velkými písmeny", pocet_slov) # počet slov začínající velkými písmeny
+    # print("Velká písmena", velka_pismena) # velká písmena
+    # print("Počet malých písmen", mala_pismena) # počet čísel
+    # print("5Počet čísel", pocet_cisel)
+    # print("Součet čísel", soucet_cisel) # součet čísel
+
+# graf
+print()
+seznam_text = []
+seznam_text.append(text_1)
+print(seznam_text)
+print()
+cetnost = {}
+for slova_v_textu in text_1.split():
+    delky_slov = (len(slova_v_textu))
+    if delky_slov not in cetnost:
+        cetnost[delky_slov] = 0
+    cetnost[(delky_slov)] += 1
+serazena_cetnost = dict(sorted(cetnost.items()))
+print(serazena_cetnost)
+for key, value in serazena_cetnost.items():
+    print(f"{key}'|', {'*' * value}, '|'{value}")
