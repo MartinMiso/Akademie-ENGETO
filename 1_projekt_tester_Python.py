@@ -43,9 +43,12 @@ chose_text = True
 long_text = ("")
 velka = ("")
 znak = ("")
-verzalky = 0
+velka_pismena = 0
 pocet_cisel = 0
 pocet_slov = 0
+cisla = []
+soucet_cisel = 0
+mala_pismena = 0
 
 # print(text_1)
 # print()
@@ -106,21 +109,29 @@ if user_register:
     print("Jsi registrovaný")
     #text_analyze()
     if chose_text == True:
-        long_text = len(text_1) # délka textu
+        long_text = len(text_1.split()) # délka textu
         
-        for cislo in text_1: # počet číslic
-            if cislo.isdigit():
-                pocet_cisel += 1
-
-        for znak in text_1: # počet velkých písmen v textu
-            if znak.isupper():
-                verzalky += 1
-        
-        for zacatek_slov in text_1: # počet slov začínající velkým písmenem
+        for cislo in (text_1.split()): # počet čísel a suma čísel
+             if cislo.isdigit():
+                cisla.append(int(cislo))
+                pocet_cisel = len(cisla)
+                soucet_cisel = (sum(cisla))
+                
+        for zacatek_slov in (text_1.split()): # počet slov začínající velkým písmenem
             if zacatek_slov[0].isupper():
                 pocet_slov += 1
 
-print(pocet_cisel)
-print(long_text)  
-print(verzalky)
-print(pocet_slov)
+        for znak in (text_1.split()): # počet velkých písmen v textu
+            if znak.isupper():
+                velka_pismena += 1
+        
+        for mala in (text_1.split()): # počet velkýchmalých slov v textu
+            if mala.islower():
+                mala_pismena += 1
+
+    print("1", long_text) # počet slov
+    print(mala_pismena) # počet čísel
+    print("2", pocet_slov) # počet slov začínající velkými písmeny
+    print("3", velka_pismena) # velká písmena
+    print("5", pocet_cisel)
+    print("6", soucet_cisel) # součet čísel

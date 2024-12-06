@@ -11,3 +11,7 @@
 
 # test = {"žena", "růže", "píseň", "kost", "kost"}
 # print(test)
+
+cisla = [1, 2, 3, 5, 10]
+soucet = sum(cisla)
+print(soucet)
