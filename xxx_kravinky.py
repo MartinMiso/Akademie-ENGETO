@@ -9,5 +9,5 @@
 # else:
 #     print("První číslo je menší než druhé")
 
-test = {"žena", "růže", "píseň", "kost", "kost"}
-print(test)
+# test = {"žena", "růže", "píseň", "kost", "kost"}
+# print(test)

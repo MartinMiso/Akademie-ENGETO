@@ -32,9 +32,20 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
+# parts of texts
 text_1 = TEXTS[0]
 text_2 = TEXTS[1]
 text_3 = TEXTS[2]
+
+# proměnné
+text_part = ("")
+chose_text = True
+long_text = ("")
+velka = ("")
+znak = ("")
+verzalky = 0
+pocet_cisel = 0
+pocet_slov = 0
 
 # print(text_1)
 # print()
@@ -42,7 +53,7 @@ text_3 = TEXTS[2]
 # print()
 # print(text_3)
 
-# user |   password  |
+# user |   password 
 # +------+-------------+
 # | bob  |     123     |
 # | ann  |   pass123   |
@@ -71,8 +82,45 @@ def enter():
 name = input("User name: ")#.lower() - případné ověření malých písmen
 password = input("Your password: ")#.lower()
 
+# # text analyze def
+# def text_analyze():
+#     global chose_text
+#     if chose_text == True:
+#         long_text = len(text_1)
+#         velka = len(text_1.upper())
+#         for cislo in text_1:
+#             if cislo.isdigit():
+#                 pocet_cisel += 1
+
+#         for znak in text_1:
+#             if znak.isupper():
+#                 verzalky += 1
+
+
+
+
 enter()
 
 if user_register:
-    
+    chose_text == True
     print("Jsi registrovaný")
+    #text_analyze()
+    if chose_text == True:
+        long_text = len(text_1) # délka textu
+        
+        for cislo in text_1: # počet číslic
+            if cislo.isdigit():
+                pocet_cisel += 1
+
+        for znak in text_1: # počet velkých písmen v textu
+            if znak.isupper():
+                verzalky += 1
+        
+        for zacatek_slov in text_1: # počet slov začínající velkým písmenem
+            if zacatek_slov[0].isupper():
+                pocet_slov += 1
+
+print(pocet_cisel)
+print(long_text)  
+print(verzalky)
+print(pocet_slov)
