@@ -16,6 +16,7 @@ while a != "":
     else:
         break
 
+# něco ze cvičení IT Network
 setridena_cisla = sorted(cisla)
 pocet_prvku = len(setridena_cisla)
 median = (pocet_prvku//2)

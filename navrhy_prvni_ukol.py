@@ -48,11 +48,11 @@ print(velka)
 
 print()
 
-verzalky = 0
+velka_pismena = 0
 for znak in text1:
     if znak.isupper():
-        verzalky += 1
-print(verzalky)
+        velka_pismena += 1
+print(velka_pismena)
 #print(len(TEXTS[0]))  # Tiskne první
 #print(TEXTS)  # Tiskne první text
 # print(TEXTS[2])  # Tiskne první text

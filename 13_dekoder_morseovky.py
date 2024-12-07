@@ -28,7 +28,7 @@ for morseuv_znak in znaky:
 print(f"Dekódovaná zpráva je: {zprava}")
 
 
-""" DEKODÉR"""
+""" DEKODÉR - nasrat voe nejde mi to...... podívat se na to později!!!!!!!"""
 input()
 # co chceme dekódovat
 sifrovana_zprava = "l e o n a r d"
