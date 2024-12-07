@@ -31,27 +31,27 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
+# uživatelé
 users = {"bob" : "123",
         "ann" : "pass123",
         "mike" : "password123",
         "liz" : "pass123"}
-
 user_register = False
+print()
 
-# password verify
-
-name = input("User name: ")#.lower() - případné ověření malých písmen
-password = input("Your password: ")#.lower()
+# ověření hesla
+name = input("user name: ")#.lower() - případné ověření malých písmen
+password = input("your password: ")#.lower()
 if users.get(name) == password:
     user_register = True
-    print()
-    print(f"{'-' * 40}")
-    print(f"Welcome to the app {name}")
+    print(f"{'-' * 45}")
+    print(f"Welcome to the app, {name}")
     print("We have 3 texts to be analyzed.")
-    print(f"{'-' * 40}")
+    print(f"{'-' * 45}")
     volba = (input("Enter a number btw. 1 and 3 to select: "))
-    print(f"{'-' * 50}")
+    print(f"{'-' * 45}")
 
+    # proměnné
     cisla = []
     pocet_cisel = 0
     soucet_cisel = 0
@@ -59,12 +59,16 @@ if users.get(name) == password:
     velka_pismena = 0
     mala_pismena = 0
 
+    # ANALÝZA TEXTU
     if volba in {"1", "2", "3"}:
-        # Vybere text podle čísla (volba 1 -> text_1, volba 2 -> text_2 atd.)
-        text_index = int(volba) - 1  # Volba 1 bude index 0, volba 2 bude index 1 atd.
-        selected_text = TEXTS[text_index]  # Vybraný text 
+        # Výběr textu
+        text_index = int(volba) - 1  
+        selected_text = TEXTS[text_index]  # Vybraný text
+    else:
+        print("bad choice, terminating the program..")
+        exit()
 
-    long_text = len(selected_text.split()) # délka textu
+    delka_textu = len(selected_text.split()) # délka textu
 
     for cislo in selected_text.split(): # počet čísel a suma čísel
         if cislo.isdigit():
@@ -80,90 +84,36 @@ if users.get(name) == password:
         if slovo.isupper() and slovo.isalpha():
             velka_pismena += 1
             
-    for mala in selected_text.split(): # počet velkýchmalých slov v textu
+    for mala in selected_text.split(): # počet malých slov v textu
         if mala.islower():
             mala_pismena += 1
 
-    print("Počet slov", long_text) # počet slov
-    print("Slova začínající velkými písmeny", pocet_slov) # počet slov začínající velkými písmeny
-    print("Počet slov psaný velkými písmeny", velka_pismena) # velká písmena
-    print("Počet slov s malý písmen", mala_pismena) # počet čísel
-    print("Počet čísel", pocet_cisel)
-    print("Součet čísel", soucet_cisel) # součet čísel
-    print()
-
+    print(f"There are {delka_textu} words in the selected text.") # počet slov
+    print(f"Tehere are {pocet_slov} titlecase words.") # počet slov začínající velkými písmeny
+    print(f"There are {velka_pismena} uppercase words.") # slova velkými písmeny
+    print(f"There are {mala_pismena} lowercase words.") # malá písmena
+    print(f"There are {pocet_cisel} numeric string.") # počet čísel
+    print(f"The sum of all the numbers {soucet_cisel}") # součet čísel
+    
+    # četnost délky slov
     cetnost = {}
-    for slova_v_textu in selected_text.split():
-        delky_slov = (len(slova_v_textu))
+    for slova_textu in selected_text.split():
+        delky_slov = (len(slova_textu))
         if delky_slov not in cetnost:
             cetnost[delky_slov] = 0
         cetnost[(delky_slov)] += 1
     serazena_cetnost = dict(sorted(cetnost.items()))
-        #print(serazena_cetnost)
+    #print(serazena_cetnost)
         
-    # formát řádkování
-    #graf
-    print(f"{'-' * 50}")
-    print("LEN|".rjust(4) + "OCCURENCES".rjust(13) + "|NR.".rjust(8))
-    print(f"{'-' * 40}")
+    # graf
+    print(f"{'-' * 45}")
+    print("LEN|".rjust(4) + "OCCURENCES".rjust(15) + "|NR.".rjust(11))
+    print(f"{'-' * 45}")
     for key, value in serazena_cetnost.items():
-        print(f"{key}|".rjust(4), f"{'*' * value}".ljust(15), f"|{value}".ljust(10))
+        print(f"{key}|".rjust(4), f"{'*' * value}".ljust(20), f"|{value}".ljust(15))
                 
 else:
-    print("Sorry, you must go out!")
-        
+    print("unregistered user, terminating the program..")
 
 
-# # if user_register:
-# #     chose_text == True
-# #     print("Jsi registrovaný")
-# #     print()
-# #     text_analyze()
-
-#     # if chose_text == True:
-#     #     
-        
-#     #     for cislo in (text_1.split()): # počet čísel a suma čísel
-#     #          if cislo.isdigit():
-#     #             cisla.append(int(cislo))
-#     #             pocet_cisel = len(cisla)
-#     #             soucet_cisel = (sum(cisla))
-                
-#     #     for zacatek_slov in (text_1.split()): # počet slov začínající velkým písmenem
-#     #         if zacatek_slov[0].isupper():
-#     #             pocet_slov += 1
-
-#     #     for znak in (text_1.split()): # počet velkých písmen v textu
-#     #         if znak.isupper():
-#     #             velka_pismena += 1
-        
-#     #     for mala in (text_1.split()): # počet velkýchmalých slov v textu
-#     #         if mala.islower():
-#     #             mala_pismena += 1
-
-#     # print("Počet slov", long_text) # počet slov
-#     # print("Slova začínající velkými písmeny", pocet_slov) # počet slov začínající velkými písmeny
-#     # print("Velká písmena", velka_pismena) # velká písmena
-#     # print("Počet malých písmen", mala_pismena) # počet čísel
-#     # print("5Počet čísel", pocet_cisel)
-#     # print("Součet čísel", soucet_cisel) # součet čísel
-
-# # graf
-# print()
-# seznam_text = []
-# seznam_text.append(text)
-# #print(seznam_text)
-# print()
-# cetnost = {}
-# for slova_v_textu in text_1.split():
-#     delky_slov = (len(slova_v_textu))
-#     if delky_slov not in cetnost:
-#         cetnost[delky_slov] = 0
-#     cetnost[(delky_slov)] += 1
-# serazena_cetnost = dict(sorted(cetnost.items()))
-# #print(serazena_cetnost)
-# # formát řádkování
-# print("LEN|".rjust(4) + "OCCURENCES".rjust(13) + "|NR.".rjust(8))
-# print(f"{'-' * 40}")
-# for key, value in serazena_cetnost.items():
-#     print(f"{key}|".rjust(4), f"{'*' * value}".ljust(15), f"|{value}".ljust(10))
+"""KONEC"""
