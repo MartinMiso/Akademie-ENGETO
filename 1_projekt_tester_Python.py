@@ -92,7 +92,8 @@ def text_analyze():
     chose_text = True
     long_text = ("")
     velka = ("")
-    znak = ("")
+    znak = 0
+    slovo = 0
     velka_pismena = 0
     pocet_cisel = 0
     pocet_slov = 0
@@ -113,9 +114,9 @@ def text_analyze():
             if zacatek_slov[0].isupper():
                 pocet_slov += 1
 
-        for znak in (text_1.split()): # počet velkých písmen v textu
-            if znak.isupper():
-                velka_pismena = velka_pismena + 1
+        for slovo in (text_1.split()): # počet velkých písmen v textu
+            if slovo.isupper() and slovo.isalpha():
+                velka_pismena += 1
         
         for mala in (text_1.split()): # počet velkýchmalých slov v textu
             if mala.islower():
@@ -123,9 +124,9 @@ def text_analyze():
 
     print("Počet slov", long_text) # počet slov
     print("Slova začínající velkými písmeny", pocet_slov) # počet slov začínající velkými písmeny
-    print("Velká písmena", velka_pismena) # velká písmena
-    print("Počet malých písmen", mala_pismena) # počet čísel
-    print("5Počet čísel", pocet_cisel)
+    print("Počet slov psaný velkými písmeny", velka_pismena) # velká písmena
+    print("Počet slov s malý písmen", mala_pismena) # počet čísel
+    print("Počet čísel", pocet_cisel)
     print("Součet čísel", soucet_cisel) # součet čísel
 
 
