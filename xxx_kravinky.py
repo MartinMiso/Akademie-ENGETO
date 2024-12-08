@@ -12,6 +12,26 @@
 # test = {"žena", "růže", "píseň", "kost", "kost"}
 # print(test)
 
-cisla = [1, 2, 3, 5, 10]
-soucet = sum(cisla)
-print(soucet)
+# cisla = [1, 2, 3, 5, 10]
+# soucet = sum(cisla)
+# print(soucet)
+
+import random
+suda_cisla = []
+licha_cisla = []
+cisla = list(range(0, 100))
+nahodna_cisla = random.sample(cisla, k=len(cisla))
+
+for cislo in nahodna_cisla:
+    if cislo % 2 == 0:
+        suda_cisla.append(cislo)
+    
+    elif cislo %2 != 0:
+        licha_cisla.append(cislo)
+
+print("Sudá čísla\n", sorted(suda_cisla))
+print(90 * "-")
+print("Lichá čísla\n", sorted(licha_cisla))
+
+        
+
