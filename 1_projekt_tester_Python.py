@@ -31,6 +31,8 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
+import re
+
 # uživatelé
 users = {"bob" : "123",
         "ann" : "pass123",
@@ -96,8 +98,9 @@ if users.get(name) == password:
     print(f"The sum of all the numbers {soucet_cisel}") # součet čísel
     
     # četnost délky slov
+    ocisteny_text = re.sub(r'[^\w\s]', '', selected_text)
     cetnost = {}
-    for slova_textu in selected_text.split():
+    for slova_textu in ocisteny_text.split():
         delky_slov = (len(slova_textu))
         if delky_slov not in cetnost:
             cetnost[delky_slov] = 0

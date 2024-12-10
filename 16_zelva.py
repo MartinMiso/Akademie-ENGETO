@@ -32,11 +32,12 @@ t2.color("green")
 t2.speed(10)
 t2.goto(20,50)
 
-for _ in range(6):
+for _ in range(4):
   t2.forward(40)
   t2.left(60)
 
-t2.goto(-20, 50)
-t2.circle(50,360)
+# for _ in range(4):
+#   t2.goto(-20, 50)
+#   t2.circle(50,360)
   
-#screen.mainloop()
+screen.mainloop()
