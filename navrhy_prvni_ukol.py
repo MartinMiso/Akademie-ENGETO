@@ -29,37 +29,71 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-text1 = (TEXTS[0])
-print(text1)
-print(len(text1))
-pocet_mezer = text1.count(" ")
-print(pocet_mezer)
-print(len(text1) - pocet_mezer)
-#pocet_celocisel = sum(1 for slovo in text1.split() if slovo.isdigit())
-#print(pocet_celocisel)
-pocet_cisel = 0
-for cislo in text1:
-    if cislo.isdigit():
-        pocet_cisel += 1
-print(pocet_cisel)
+# text1 = (TEXTS[0])
+# print(text1)
+# print(len(text1))
+# pocet_mezer = text1.count(" ")
+# print(pocet_mezer)
+# print(len(text1) - pocet_mezer)
+# #pocet_celocisel = sum(1 for slovo in text1.split() if slovo.isdigit())
+# #print(pocet_celocisel)
+# pocet_cisel = 0
+# for cislo in text1:
+#     if cislo.isdigit():
+#         pocet_cisel += 1
+# print(pocet_cisel)
 
-velka = len(text1.upper())
-print(velka)
+# velka = len(text1.upper())
+# print(velka)
 
-print()
+# print()
 
-velka_pismena = 0
-for znak in text1:
-    if znak.isupper():
-        velka_pismena += 1
-print(velka_pismena)
-#print(len(TEXTS[0]))  # Tiskne první
-#print(TEXTS)  # Tiskne první text
-# print(TEXTS[2])  # Tiskne první text
-
-
+# velka_pismena = 0
+# for znak in text1:
+#     if znak.isupper():
+#         velka_pismena += 1
+# print(velka_pismena)
+# #print(len(TEXTS[0]))  # Tiskne první
+# #print(TEXTS)  # Tiskne první text
+# # print(TEXTS[2])  # Tiskne první text
 
 
+# list = TEXTS[0]
+# list_rozdeleny = list.split()
+# print(list_rozdeleny)
+# # list_ocisteny = list_rozdeleny.strip([",.;'"])
+# # print(list_ocisteny)
+# list_ocisteny = []
+# # očištění textu o diakritiku
+# for slovo in list.split():
+#     list_ocisteny.append((slovo.strip(",.:;")).lower())
+# print(list_ocisteny)
+
+cviceni = {
+    "push_up": {"description": "Push-up exercise", "reps": 15},
+    "squat": {"description": "Bodyweight squat", "reps": 20},
+    "plank": {"description": "Core strengthening exercise", "duration": "30s"},
+    "jumping_jack": {"description": "Full-body cardio exercise", "reps": 25},
+    "burpee": {"description": "High-intensity full-body exercise", "reps": 10},
+    "lunge": {"description": "Leg strengthening exercise", "reps_per_leg": 10},
+    "mountain_climber": {"description": "Core and cardio workout", "duration": "20s"},
+    "crunch": {"description": "Abdominal exercise", "reps": 20},
+    "deadlift": {"description": "Strength training exercise", "reps": 12},
+    "pull_up": {"description": "Upper-body strength exercise", "reps": 8},
+    "bicycle_crunch": {"description": "Oblique workout", "reps": 15},
+    "high_knees": {"description": "Cardio exercise", "duration": "20s"},
+    "leg_raise": {"description": "Abdominal exercise", "reps": 15},
+    "tricep_dip": {"description": "Arm and shoulder workout", "reps": 10},
+    "side_plank": {"description": "Core and oblique exercise", "duration": "20s"},
+    "step_up": {"description": "Leg and glute exercise", "reps_per_leg": 12},
+    "skater_jump": {"description": "Plyometric exercise", "reps": 15},
+    "bridge": {"description": "Glute and lower back workout", "reps": 20},
+    "toe_touch": {"description": "Flexibility and core exercise", "reps": 15},
+    "wall_sit": {"description": "Static leg exercise", "duration": "30s"}
+}
 
 
 
+
+for k, v in cviceni.items():
+    print(k, v)
