@@ -107,3 +107,50 @@
 # for key, value in serazena_cetnost.items():
 #     print(f"{key}|".rjust(4), f"{'*' * value}".ljust(20), f"|{value}".ljust(15))
 
+
+
+# VYTVOŘENÍ SLOŽEK V PC
+# import os
+
+# jmena_slozek = ("obrazky" , "texty" , "gif")
+# slozka = ()
+
+# for slozka in jmena_slozek:
+#     if os.path.exists(slozka) and os.path.isdir(slozka):
+#         print("Složka existuje")
+#     else:
+#         os.mkdir(slozka)
+#         print(f"Tvořím novou složku: {slozka}")
+
+# print("Všechny složky existují")
+
+
+
+
+#KOSTKY
+# import random
+# import time
+
+# def hazeni_kostkou():
+#     min_hodnota = 1
+#     max_hodnota = 6
+
+#     while True:
+#         print(f"Házím kostkou ...")
+#         time.sleep(1)
+#         kostka_hodnota = random.randint(min_hodnota, max_hodnota)
+#         print(f"Na kostce je hozena: {kostka_hodnota}")
+#         print("-" * len(f"Na kostce je hozena: {kostka_hodnota}"))
+#         if kostka_hodnota < 6:
+#             print()
+#             continue
+#         else:
+#             break
+    
+
+# while True:
+#     hazeni_kostkou()
+#     pokracovat = input("Chceš pokračovat? Jestli ano, stiskni ,y,")
+#     if pokracovat != "y":
+#         print("Konec hry")
+#         break
