@@ -11,7 +11,7 @@ sum = []
 for cislo in cisla:
     
     
-    print(sum)
+    print(sum)}
    
 
 

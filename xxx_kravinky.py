@@ -154,3 +154,82 @@
 #     if pokracovat != "y":
 #         print("Konec hry")
 #         break
+
+# jmena = ("Matous", "Marek", "Lukas", "Jan")
+# *zbytek, posledni_jmeno, = jmena
+# print( posledni_jmeno, sep=", ")
+# print(zbytek)
+
+# import os
+
+# var_1 = 1
+# var_2 = 1,
+
+# # různé datové typy
+# print(type(var_1), type(var_2), sep="", end="") 
+
+# # rozdělení jména a přípony souboru
+# jmeno, pripona = os.path.splitext("poznamky.txt") 
+# print(jmeno, pripona, sep="", end="")
+# *cele, = os.path.splitext("poznamky.txt")
+
+# # uchování jména i přípony v jednom objektu
+# print(cele)
+
+# prvni_cislo = 5
+# druhe_cislo = 5
+
+# def vynasob(num1, num2):
+#     return num1 * num2
+
+# vysledek = vynasob(prvni_cislo, druhe_cislo)
+
+# print(f"Výsledek je: {vysledek}")
+
+# vstup = "Ahoj všem"
+
+# def zdvojnasob_vsechny_znaky(zadani):
+#     zdvojene = []
+
+#     for znak in vstup:
+#         zdvojene.append(znak * 2)
+#     return "".join(zdvojene)
+
+# vysledek = zdvojnasob_vsechny_znaky(vstup)
+
+# print(vysledek)
+
+
+
+# import sys
+
+# def je_os_windows():
+#     return sys.platform.startswith("win")
+       
+
+# print(je_os_windows())
+
+
+
+# prvni_cislo = 12
+# druhe_cislo = 16
+
+# def najdi_gcd(x1,x2):
+#     while x2 > 1:
+#         zbytek_po_deleni = x1 % x2
+
+#         if not zbytek_po_deleni:
+#             break
+
+#         x1, x2 = x2, zbytek_po_deleni
+#     return x2
+
+# vysledek = (najdi_gcd(prvni_cislo, druhe_cislo))
+
+# print(vysledek)
+
+
+"""ANAGRAMY - cvičení 8. lekce"""
+
+
+        

@@ -90,9 +90,7 @@ if users.get(name) == password:
         if mala.islower():
             mala_pismena += 1
     print(f"There are {delka_textu} words in the selected text.")  # počet slov
-    print(
-        f"Tehere are {pocet_slov} titlecase words."
-    )  # počet slov začínající velkými písmeny
+    print(f"Tehere are {pocet_slov} titlecase words.")  # počet slov začínající velkými písmeny
     print(f"There are {velka_pismena} uppercase words.")  # slova velkými písmeny
     print(f"There are {mala_pismena} lowercase words.")  # malá písmena
     print(f"There are {pocet_cisel} numeric string.")  # počet čísel
