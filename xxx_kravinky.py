@@ -229,7 +229,61 @@
 # print(vysledek)
 
 
-"""ANAGRAMY - cvičení 8. lekce"""
+# """ANAGRAMY - cvičení 8. lekce"""
 
+# # funkce na zadání anagramu - jakýkoliv tuple
+# def je_anagram(*args) -> bool:
 
-        
+#     vzor = sorted(args[0]) # seřazení podle "0" indexu
+
+#     # projde jednotlivá slova
+#     for slovo in args:
+#         if sorted(slovo) != vzor:
+#             return False
+#     else:
+#         return True
+
+# # výpis volané fnkce
+# print(
+#     je_anagram("ship", "hips", "hisp"),
+#     je_anagram("ship", "hips", "duck"),
+#     sep="\n"
+# )
+
+# -------------------------------------------------------------
+
+# adresy = [
+#    "matous@holinka.com",
+#    "danek11@seznam.cz",
+#    "rennud15@gmail.com",
+#    "pepa@centrum.cz"
+# ]
+
+# kokosy = [
+#    "matous@holinka.com",
+#    "danek11@seznam.cz",
+#    "rennud@gmail.com",
+#    "pep456a@centrum.cz"
+# ]
+# vysledek = []
+
+# def filtruj_adresy_s_cisly(adresy):
+#     ciselne_hodnoty = []
+
+#     for email in adresy:
+#         for znak in email:
+#             if not znak.isnumeric():
+#                 continue
+#             else:
+#                 ciselne_hodnoty.append(email)
+#                 break
+    
+#     return ciselne_hodnoty
+    
+# vysledek = filtruj_adresy_s_cisly(adresy)
+# print(vysledek)
+# vysledek = filtruj_adresy_s_cisly(kokosy)
+# print(vysledek)
+
+# ---------------------------------------------------------
+

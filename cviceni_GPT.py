@@ -615,30 +615,73 @@ while True:
 
 # ----------------------------------------------------------------
 
-"""
-### **9. Počítadlo výskytů slov**
-**Úkol:**  
-Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
-Výstup zobrazte abecedně seřazený.Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
-Výstup zobrazte abecedně azený.Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
-Výstup zobrazte abecedně seřazený.
+# """
+# ### **9. Počítadlo výskytů slov**
+# **Úkol:**  
+# Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
+# Výstup zobrazte abecedně seřazený.Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
+# Výstup zobrazte abecedně azený.Napište program, který spočítá počet výskytů jednotlivých slov v zadaném textu.
+# Výstup zobrazte abecedně seřazený.
 
-**Postup:**  
-1. Požádejte uživatele o zadání textu.  
-2. Rozdělte text na jednotlivá slova.  
-3. Použijte slovník k uložení četnosti každého slova.  
-4. Výstup seřaďte podle klíčů.  
-"""
+# **Postup:**  
+# 1. Požádejte uživatele o zadání textu.  
+# 2. Rozdělte text na jednotlivá slova.  
+# 3. Použijte slovník k uložení četnosti každého slova.  
+# 4. Výstup seřaďte podle klíčů.  
+# """
 
-vstupni_text = input("Zadej text k analýze: ")
+# vstupni_text = input("Zadej text k analýze: ")
 
-text = vstupni_text.split()
+# text = vstupni_text.split()
 
-cetnost = {}
+# cetnost = {}
 
-for slovo in text:
-    cetnost[slovo] = cetnost.get(slovo, 0) + 1
+# for slovo in text:
+#     cetnost[slovo] = cetnost.get(slovo, 0) + 1
 
-for slovo, pocet in sorted(cetnost.items()):
-    print(f"{slovo}: {pocet}")
+# for slovo, pocet in sorted(cetnost.items()):
+#     print(f"{slovo}: {pocet}")
+
+
+# ------------------------------------------------------------------------------
+
+# """
+# ### **10. Záznamy o studentech (Seznamy a třídění)**
+# **Úkol:**  
+# Vytvořte program pro správu seznamu studentů. Každý student má jméno a známku. 
+# Program umožní přidání studenta, zobrazení seznamu a seřazení podle známky.  
+
+# **Postup:**  
+# 1. Uložte studenty do seznamu jako dvojice (jméno, známka).  
+# 2. Implementujte funkce pro přidání studenta a zobrazení seznamu.  
+# 3. Umožněte řazení podle známek.  
+# """
+
+# seznam = []
+
+# while True:
+#     volba = input("\n1 - Přidej studenta \n2 - Zobraz seznam \n3 - Seřaď podle známek \n4 - Konec \nProveď volbu: ")
+#     if volba == "1":
+#         studenti = input("Zadej jméno studenta: ")
+#         znamka = input("Zadej známku: ")
+#         seznam.append((studenti, znamka))
+
+#     elif volba == "2":
+#         #print(seznam)
+#         for studenti, znamka in seznam:
+#             print(f"{studenti}: {znamka}")
+
+#     elif volba == "3":
+#         serazeny_seznam = sorted(seznam, key=lambda x:x[1])
+#         #print(serazeny_seznam)
+#         for studenti, znamka in serazeny_seznam:
+#             print(f"{studenti}: {znamka}")
+
+#     elif volba == "4":
+#         print("Končím")
+#         break
+
+#     else:
+#         print("Neplatná volba")
+        
 
