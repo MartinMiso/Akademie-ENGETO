@@ -1,24 +1,12 @@
 import random
 
 def vytvor_nah_cislo():
-    cislo = list(range(10))
-    random.shuffle(cislo)
-    return "".join(map(str, cislo[:4]))
-    
-    
-    # cislo = list()
-    # for cislice in range(4):
-    #     cislice = random.randint(0, 10)
-    #     cislo.append(cislice)
-    # #print(cislo)
-    # return cislo
-    
-# def vstup_uzivatele():
-#     uz_tip = list()
-#     uz_tip = list(int(input("Zadej číslo o 4 číslicích: ")))
-#     print(uz_tip)
-#     return uz_tip
-    
+    while True:
+        cislo = list(range(10))
+        random.shuffle(cislo)
+        if cislo[0] != 0:
+        
+            return "".join(map(str, cislo[:4]))
     
 
 nah_cislo = vytvor_nah_cislo()
@@ -29,10 +17,12 @@ print(nah_cislo)
 uz_cislo = input("Zadej číslo o 4 hodnotách: ")
 if len(uz_cislo) != 4 or not uz_cislo.isdigit():
     print("Špatně.")
+else:
+    pass
    
-
 test = zip(nah_cislo, uz_cislo)
 
+bulls = sum(1 for n, u in test if n == u)
 for n, u in test:
     if n == u:
         print("Máš býka")
