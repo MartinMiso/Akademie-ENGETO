@@ -376,23 +376,23 @@ while True:
 #             print("Kontakt není v databázi.")
         
 
-#     elif volba == "3":
-#         export = input("Pro zobrazení slovníku zadej 1, pro export do txt. zadej 2: ")
-#         if export == "1":
-#             for kontakt in kontakty:
-#                 print(f"Jméno: {kontakt['Jméno']} : Číslo: {kontakt['Číslo']} : Email: {kontakt['Email']}\n")
-#         else:
-#             with open("export_seznam.txt", "w") as file: # vytvoří nový soubor a PŘEPÍŠE původní hodnoty
-#                 for kontakt in kontakty: 
-#                     file.write(f"Jméno: {kontakt['Jméno']} : Číslo: {kontakt['Číslo']} : Email: {kontakt['Email']}\n")
-#             print("Soubor exportován")
+    # elif volba == "3":
+    #     export = input("Pro zobrazení slovníku zadej 1, pro export do txt. zadej 2: ")
+    #     if export == "1":
+    #         for kontakt in kontakty:
+    #             print(f"Jméno: {kontakt['Jméno']} : Číslo: {kontakt['Číslo']} : Email: {kontakt['Email']}\n")
+    #     else:
+    #         with open("export_seznam.txt", "w") as file: # vytvoří nový soubor a PŘEPÍŠE původní hodnoty
+    #             for kontakt in kontakty: 
+    #                 file.write(f"Jméno: {kontakt['Jméno']} : Číslo: {kontakt['Číslo']} : Email: {kontakt['Email']}\n")
+    #         print("Soubor exportován")
     
-#     elif volba == "4":
-#         print("Končím program. Díky za použití.")
-#         break
+    # elif volba == "4":
+    #     print("Končím program. Díky za použití.")
+    #     break
 
-#     else:
-#         print("Neplatné zadání.")
+    # else:
+    #     print("Neplatné zadání.")
 
 # ------------------------------------------
 
