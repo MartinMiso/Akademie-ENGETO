@@ -1,3 +1,32 @@
+"""
+2_projekt_tester_Python.py: druhý projekt do Engeto Online Python Akademie
+
+author: Martin Mišo
+email: martin.miso@seznam.cz
+"""
+
+"""Hi there!
+-----------------------------------------------
+I've generated a random 4 digit number for you.
+Let's play a bulls and cows game.
+-----------------------------------------------
+Enter a number:
+-----------------------------------------------
+>>> 1234
+0 bulls, 2 cows
+-----------------------------------------------
+>>> 6147
+1 bull, 1 cow
+-----------------------------------------------
+>>> 2417
+3 bulls, 0 cows
+-----------------------------------------------
+>>> 2017
+Correct, you've guessed the right number
+in 4 guesses!
+-----------------------------------------------
+That's amazing!"""
+
 import time
 import random
 
@@ -11,12 +40,15 @@ def vytvor_nah_cislo():
     
 
 def vstup_uzivatele():
-    vstup = input("Zadej číslo o 4 hodnotách: ")
-    if len(vstup) != 4 or not vstup.isdigit():
-        print("Špatně.")
-    else:
-        pass
-    return vstup
+    while True:
+        vstup = input("Zadej číslo o 4 hodnotách: ")
+        str_cislo = str(vstup)
+        mnozina_cisel = set(str_cislo)
+        if len(vstup) != 4 or not vstup.isdigit() or len(vstup) != len(mnozina_cisel):
+            print("Číslo musí obsahovat pouze číslice, mít jen 4 znaky a žádné duplicity. Zadej číslo znova.")
+        else:
+            return vstup
+
 
 def vyp_bulls(nah_cislo, cislo_uzivatele):
     sum_bulls = sum(1 for n, u in zip(nah_cislo, cislo_uzivatele) if n == u)
