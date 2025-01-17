@@ -170,8 +170,31 @@
 
 # --------------------------------------------------
 
-cisla_1 = {1, 2, 3, 4}
-cisla_2 = {3, 4, 5, 6}
-#rozdil_cisel = cisla_1 - cisla_2
-rozdil_cisel = cisla_1.difference(cisla_2)
-print(rozdil_cisel)
+# cisla_1 = {1, 2, 3, 4}
+# cisla_2 = {3, 4, 5, 6}
+# #rozdil_cisel = cisla_1 - cisla_2
+# rozdil_cisel = cisla_1.difference(cisla_2)
+# print(rozdil_cisel)
+
+# ---------------------------------------------------------
+
+def pravidla_hry():
+    """
+    Vrací text s pravidly hry.
+    """
+    text_pravidla = """I've generated a random 4 digit number for you.
+Let's play a bulls and cows game."""
+    return text_pravidla
+
+def format_podrtzitka():
+    """
+    Vytvoří řetězec podtržítek odpovídající délce nejdelšího řádku textu pravidel hry.
+    """
+    text = pravidla_hry()
+    max_delka_radku = max(len(radek) for radek in text.splitlines())
+    podtrzitka = ("-" * max_delka_radku)
+    return podtrzitka
+
+
+print(pravidla_hry())
+print(format_podrtzitka())
