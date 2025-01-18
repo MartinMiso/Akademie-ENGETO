@@ -104,6 +104,7 @@ def vyp_cows(nah_cislo, cislo_uzivatele, bulls):
 
     Parametry:
         nah_cislo (str): Náhodně generované číslo jako řetězec.
+        cislo_uzivatele (str): číslo zadané uživatelem jako řetězec.
         Proměnná `bulls` musí být předána nebo definována mimo tuto funkci.
         uz: reprezentuje uživatelské číslo
     """
