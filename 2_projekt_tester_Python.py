@@ -3,38 +3,19 @@
 
 author: Martin Mišo
 email: martin.miso@seznam.cz
-"""
 
-"""Hi there!
------------------------------------------------
-I've generated a random 4 digit number for you.
-Let's play a bulls and cows game.
------------------------------------------------
-Enter a number:
------------------------------------------------
->>> 1234
-0 bulls, 2 cows
------------------------------------------------
->>> 6147
-1 bull, 1 cow
------------------------------------------------
->>> 2417
-3 bulls, 0 cows
------------------------------------------------
->>> 2017
-Correct, you've guessed the right number
-in 4 guesses!
------------------------------------------------
-That's amazing!"""
+"""
 
 import time
 import random
+
 
 def pozdrav():
     """Vrací uvítací pozdrav.
     """
     pozdrav = """Hi there!"""
     return pozdrav
+
 
 def pravidla_hry():
     """
@@ -43,6 +24,7 @@ def pravidla_hry():
     text_pravidla = """I've generated a random 4 digit number for you. 
 Let's play a bulls and cows game."""
     return text_pravidla
+
 
 def format_podrtzitka():
     """
@@ -97,7 +79,7 @@ def vstup_uzivatele():
 
 def vyp_bulls(nah_cislo, cislo_uzivatele):
     """
-    Vrací počet číslic na správné pozici mezi dvěma čísly.
+    Vrací počet stejných číslic na správné pozici mezi dvěma čísly.
 
     Funkce porovnává dvě čísla a počítá, kolik číslic má 
     uživatelovo číslo na správných pozicích.
@@ -105,75 +87,88 @@ def vyp_bulls(nah_cislo, cislo_uzivatele):
     Parametry:
         nah_cislo (str): Náhodně generované číslo jako řetězec.
         cislo_uzivatele (str): číslo zadané uživatelem jako řetězec.
+        n: reprezentuje náhodné číslo
+        u: reprezentuje uživatelské číslo
     """
     sum_bulls = sum(1 for n, u in zip(nah_cislo, cislo_uzivatele) if n == u)
     return sum_bulls
 
-def vyp_cows(nah_cislo):
+
+def vyp_cows(nah_cislo, cislo_uzivatele, bulls):
     """
-    Vrací počet číslic na správné pozici mezi dvěma čísly.
+    Vrací počet stejných číslic na správné pozici mezi dvěma čísly.
 
     Funkce porovnává dvě čísla a počítá, kolik číslic má 
     uživatelovo číslo na správných pozicích.
     Následně se z celkového počtu shodných číslic odečte počet "bulls".
 
     Parametry:
-        nah_cislo (str): Náhodně generované čtyřciferné číslo jako řetězec.
+        nah_cislo (str): Náhodně generované číslo jako řetězec.
         Proměnná `bulls` musí být předána nebo definována mimo tuto funkci.
+        uz: reprezentuje uživatelské číslo
     """
     sum_cows = (sum(1 for uz in cislo_uzivatele if uz in nah_cislo) - bulls)
     return sum_cows
 
-# uvítací pozdrav a pravidla
-print(pozdrav())
-print(format_podrtzitka())
-print(pravidla_hry())
-print(format_podrtzitka())
 
-# Počátek počítání času ve vteřinách od spuštění hry
-start_cas = int(time.perf_counter())
+def main():
+    """
+    Spustí hlavní logiku hry Bulls and Cows.
 
-# Inicializace funkce náhodného čísla
-nah_cislo = vytvor_nah_cislo()
-print(nah_cislo)
+    Provádí následující kroky:
+    1. Vypíše uvítací pozdrav a pravidla hry.
+    2. Vygeneruje náhodné číslo podle podmínek.
+    3. Spustí herní smyčku, která porovnává vstup uživatele s náhodným číslem.
+    4. Po uhodnutí čísla vypíše statistiky (počet pokusů a čas hry).
+    """
 
-pocitadlo_smycek = 0
+    # výpis uvítacího pozdravu a pravidel hry
+    print(pozdrav())
+    print(format_podrtzitka())
+    print(pravidla_hry())
+    print(format_podrtzitka())
 
-while True:
-    pocitadlo_smycek += 1
+    # Počátek počítání času ve vteřinách od spuštění hry
+    start_cas = int(time.perf_counter())
 
-    cislo_uzivatele = vstup_uzivatele()   
-    
-    bulls = vyp_bulls(nah_cislo, cislo_uzivatele)
-    cows = vyp_cows(nah_cislo)
+    # Inicializace funkce náhodného čísla
+    nah_cislo = vytvor_nah_cislo()
+    #print(nah_cislo)
 
-    
-    if bulls != 4:
+    pocitadlo_smycek = 0 # nastavení počítadla smyček na nulu
+
+    while True:
+        pocitadlo_smycek += 1 # přičtení čísla při každém průběhu smyčky
+
+        # přírazení a volání funkcí pro průběh hry
+        cislo_uzivatele = vstup_uzivatele()   
         
-        if bulls == 1:
-            bull = "BULL"
+        bulls = vyp_bulls(nah_cislo, cislo_uzivatele)
+        cows = vyp_cows(nah_cislo, cislo_uzivatele, bulls)
+
+        # logika výpisu BULL/BULLS, COW/COWS
+        if bulls != 4:
+            bull = "BULL" if bulls == 1 else "BULLS"
+            cow = "COW" if cows == 1 else "COWS"
+                        
+            print(f"{bulls} {bull}, {cows} {cow}")
+            print(format_podrtzitka())
+
+        # výpis o uhádnutí čísla a ukončení hry
         else:
-            bull = "BULLS"
-        if cows == 1:
-            cow = "COW"
-        else:
-            cow = "COWS"
-        
-        print(f"{bulls} {bull}, {cows} {cow}")
-        print(format_podrtzitka())
+            end_cas = int(time.perf_counter()) # konec počítání času hry
+            print(f"Correct, you've guessed the right number \n"
+                f"in 4 guesses! \n"
+                f"Number of attempts: {pocitadlo_smycek}\n"
+                f"Length of the game: {end_cas - start_cas} seconds")
+            print(format_podrtzitka())
+            print("That's amazing!")
 
+            break
 
-    else:
-        end_cas = int(time.perf_counter())
-        print(f"Correct, you've guessed the right number \n"
-              f"in 4 guesses! \n"
-              f"Number of attempts: {pocitadlo_smycek}\n"
-              f"Length of the game: {end_cas - start_cas} seconds")
-        print(format_podrtzitka())
-        print("That's amazing!")
+if __name__ == "__main__":
+    main()
 
-        break
-    
 # konec
 
 

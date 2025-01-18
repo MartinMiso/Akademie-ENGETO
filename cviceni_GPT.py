@@ -14,29 +14,6 @@ Vytvořte program, který funguje jako jednoduchá kalkulačka. Uživateli umož
 4. Ošetřete chybu při dělení nulou.  
 5. Zobrazte výsledek nebo chybovou zprávu.  
 
-**Řešení:**  
-```python
-cislo1 = float(input("Zadej první číslo: "))
-cislo2 = float(input("Zadej druhé číslo: "))
-operace = input("Zadej operaci (+, -, *, /): ")
-
-if operace == '+':
-    vysledek = cislo1 + cislo2
-elif operace == '-':
-    vysledek = cislo1 - cislo2
-elif operace == '*':
-    vysledek = cislo1 * cislo2
-elif operace == '/':
-    if cislo2 != 0:
-        vysledek = cislo1 / cislo2
-    else:
-        vysledek = "Dělení nulou není povoleno."
-else:
-    vysledek = "Neplatná operace."
-
-print(f"Výsledek: {vysledek}")
-```
-
 ---
 
 ### **2. Správa kontaktů (Práce se slovníky)**
@@ -48,35 +25,6 @@ Vytvořte program pro správu kontaktů. Program umožní uživateli přidat nov
 2. Vytvořte cyklus, který umožní opakované zadávání příkazů.  
 3. Implementujte možnosti pro přidání, odstranění a zobrazení kontaktů.  
 4. Ošetřete chyby, například neexistující kontakt.  
-
-**Řešení:**  
-```python
-kontakty = {}
-
-while True:
-    print("\nMožnosti: \n1 - Přidat kontakt\n2 - Odebrat kontakt\n3 - Zobrazit kontakty\n4 - Konec")
-    volba = input("Vyber možnost: ")
-
-    if volba == '1':
-        jmeno = input("Zadej jméno: ")
-        cislo = input("Zadej číslo: ")
-        kontakty[jmeno] = cislo
-        print("Kontakt přidán.")
-    elif volba == '2':
-        jmeno = input("Zadej jméno ke smazání: ")
-        if jmeno in kontakty:
-            del kontakty[jmeno]
-            print("Kontakt odstraněn.")
-        else:
-            print("Kontakt nenalezen.")
-    elif volba == '3':
-        for jmeno, cislo in kontakty.items():
-            print(f"{jmeno}: {cislo}")
-    elif volba == '4':
-        break
-    else:
-        print("Neplatná volba.")
-```
 
 ---
 
@@ -90,21 +38,6 @@ Napište program, který analyzuje text zadaný uživatelem. Program spočítá 
 3. Projděte jednotlivé znaky textu a spočítejte jejich četnost (použijte slovník).  
 4. Výsledky zobrazte uspořádané podle abecedy.  
 
-**Řešení:**  
-```python
-text = input("Zadej text: ").lower()
-pocet_slov = len(text.split())
-statistika = {}
-
-for znak in text:
-    if znak.isalpha():
-        statistika[znak] = statistika.get(znak, 0) + 1
-
-print(f"Počet slov: {pocet_slov}")
-print("Výskyt písmen:")
-for pismeno, pocet in sorted(statistika.items()):
-    print(f"{pismeno}: {pocet}")
-```
 
 ---
 
@@ -118,15 +51,6 @@ Vytvořte program, který vygeneruje náhodné heslo o zadané délce. Heslo bud
 3. Kombinujte různé typy znaků z knihovny `string`.  
 4. Vygenerované heslo zobrazte.  
 
-**Řešení:**  
-```python
-import random
-import string
-
-delka = int(input("Zadej délku hesla: "))
-heslo = ''.join(random.choices(string.ascii_letters + string.digits + string.punctuation, k=delka))
-print(f"Generované heslo: {heslo}")
-```
 
 ---
 
@@ -139,22 +63,6 @@ Napište program, který vypočítá n-tý člen Fibonacciho posloupnosti. Fibon
 2. Ověřte, že vstup je platné číslo.  
 3. Zobrazte výsledek výpočtu.  
 
-**Řešení:**  
-```python
-def fibonacci(n):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
-n = int(input("Zadej pořadí členu: "))
-print(f"{n}. člen Fibonacciho posloupnosti je {fibonacci(n)}")
-```
-
----
-## Pokročilá cvičení na programování v Pythonu (6–10)
 
 ---
 
@@ -169,21 +77,6 @@ Vytvořte program, který zkontroluje, zda zadané heslo splňuje požadavky na 
 2. Použijte regulární výrazy nebo podmínky k ověření požadavků.  
 3. Zobrazte výsledek kontroly.  
 
-**Řešení:**  
-```python
-import re
-
-heslo = input("Zadej heslo: ")
-
-if (len(heslo) >= 8 and
-    re.search(r'[A-Z]', heslo) and
-    re.search(r'[a-z]', heslo) and
-    re.search(r'[0-9]', heslo) and
-    re.search(r'[!@#$%^&*(),.?":{}|<>]', heslo)):
-    print("Heslo je platné.")
-else:
-    print("Heslo nesplňuje požadavky.")
-```
 
 ---
 
@@ -196,14 +89,7 @@ Napište program, který zjistí, zda je zadaný text palindrom (čte se stejně
 2. Odstraňte mezery a převeďte text na malá písmena.  
 3. Zkontrolujte, zda je text shodný sám se sebou pozpátku.  
 
-**Řešení:**  
-```python
-text = input("Zadej text: ").replace(" ", "").lower()
-if text == text[::-1]:
-    print("Text je palindrom.")
-else:
-    print("Text není palindrom.")
-```
+
 
 ---
 
@@ -217,21 +103,6 @@ nápovědu (větší/menší).
 2. Opakovaně požádejte hráče o tip, dokud číslo neuhodne.  
 3. Poskytněte nápovědu, zda je číslo větší nebo menší.  
 
-**Řešení:**  
-```python
-import random
-
-cislo = random.randint(1, 100)
-while True:
-    tip = int(input("Hádej číslo: "))
-    if tip < cislo:
-        print("Více!")
-    elif tip > cislo:
-        print("Méně!")
-    else:
-        print("Gratuluji, uhodl jsi číslo!")
-        break
-```
 
 ---
 
@@ -245,19 +116,6 @@ Napište program, který spočítá počet výskytů jednotlivých slov v zadan�
 3. Použijte slovník k uložení četnosti každého slova.  
 4. Výstup seřaďte podle klíčů.  
 
-**Řešení:**  
-```python
-text = input("Zadej text: ").lower()
-slova = text.split()
-statistika = {}
-
-for slovo in slova:
-    statistika[slovo] = statistika.get(slovo, 0) + 1
-
-for slovo, pocet in sorted(statistika.items()):
-    print(f"{slovo}: {pocet}")
-```
-
 ---
 
 ### **10. Záznamy o studentech (Seznamy a třídění)**
@@ -268,30 +126,6 @@ Vytvořte program pro správu seznamu studentů. Každý student má jméno a zn
 1. Uložte studenty do seznamu jako dvojice (jméno, známka).  
 2. Implementujte funkce pro přidání studenta a zobrazení seznamu.  
 3. Umožněte řazení podle známek.  
-
-**Řešení:**  
-```python
-studenti = []
-
-while True:
-    print("\nMožnosti: \n1 - Přidat studenta\n2 - Zobrazit seznam\n3 - Seřadit podle známky\n4 - Konec")
-    volba = input("Vyber možnost: ")
-
-    if volba == '1':
-        jmeno = input("Zadej jméno studenta: ")
-        znamka = float(input("Zadej známku: "))
-        studenti.append((jmeno, znamka))
-    elif volba == '2':
-        for jmeno, znamka in studenti:
-            print(f"{jmeno}: {znamka}")
-    elif volba == '3':
-        studenti.sort(key=lambda x: x[1])
-        print("Seznam seřazen podle známek.")
-    elif volba == '4':
-        break
-    else:
-        print("Neplatná volba.")
-```
 
 ---
 
