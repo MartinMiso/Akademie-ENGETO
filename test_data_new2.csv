@@ -1,0 +1,8 @@
+ID,Jméno,Status,Doba běhu,Chybová hláška
+1,LoginTest,Ok,2.3,Neznámá chyba
+2,RegistrationTest,Failed,4.1,ValidationError
+3,SearchTest,Ok,1.2,Neznámá chyba
+4,LogoutTest,Failed,3.5,Neznámá chyba
+5,UploadTest,Ok,2.0,Neznámá chyba
+2,ProfileUpdateTest,Failed,4.1,ValidationError
+6,UpdateTest,Failed,3.7,Neznámá chyba
