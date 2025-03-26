@@ -340,7 +340,71 @@
 
 # print(uloz_emailove_adresy(text))
 
-i = "Martin"
-o = "Mišo"
 
-print(i,"", o)
+
+# def pozdrav_uzivatele(jmeno, jazyk):
+#     if jazyk == "cs":
+#         print("Ahoj,", jmeno)
+#     elif jazyk == "en":
+#         print("Hi,", jmeno)
+
+# pozdrav_uzivatele("Martin", "en")
+
+# def uloz_informace(jmeno, prijmeni, telefon):
+#     return(f"Jméno: {jmeno}, Přijmení: {prijmeni}, Telefon: {telefon}\n")
+
+# #print(uloz_informace("Martin", "Mišo", "785632569"))
+
+# with open("uzivatele_2.txt", "a", encoding="utf-8") as file:
+#     file.write(uloz_informace("Jirka", "Svetr", "785632589"))
+#     print("Soubor exportován")
+
+
+
+# def vypocitej_hodnotu(koef_1, koef_2, koef_3):
+#     """
+#     Vrať výslednou hodnotu vypočítanou pomocí tří zadaných koeficientů.
+#     """
+#     return (1 / koef_1) * (koef_2 ** koef_3)
+
+# # Volání funkce a vytištění výsledku
+# print(vypocitej_hodnotu(1, 2, 4))
+
+
+# data_1 = {'order': {'id': '1234', 'type': 'order.created', 'channel': 'eshop CZ'}}
+# data_2 = {'order': {'id': '1234', 'type': 'order.created', 'channel': ''}}
+# data_3 = {'order': {'id': '1234', 'type': 'order.created'}}
+
+
+# vlozeny_dict = dict[str, dict[str, str]]
+
+# def vrat_zemi_objednavky(data: vlozeny_dict, key: str = "channel"):
+#     try:
+#         kod = data["order"]["channel"].split(" ")[1]
+#     except IndexError:
+#         print("WARNING: Prazdny channel")
+#         return None
+#     except KeyError:
+#         print("WARNING: Chybi klic channel")
+#         return None 
+#     else:
+#         return kod
+
+# vrat_zemi_objednavky(data_1)
+
+def precist_soubor(cesta)
+    with open(cesta, "r", encoding = "UTF-8") as soubor:
+    return soubor.readlines()
+
+
+def projdi_vsechny_udaje(radky: list(str)): -> tuple(list(str), list(str))
+    jmena, domeny = [], []
+    for radek in radky:
+        if "end" in radek:
+            break
+        jmeno, domena = radek.split("@")
+        jmena.append(jmeno)
+        domeny.append(domena)
+    return jmena, domeny
+
+radky = precist_soubor("emaily.txt")
